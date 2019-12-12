@@ -1,4 +1,4 @@
-import * as c from '../actions';
+import { ADD_FEATURE, REMOVE_FEATURE } from '../actions';
 
 export const initialState = {
   additionalPrice: 0,
@@ -20,12 +20,24 @@ export const initialState = {
 
 // Used for adding or removing features
 export const carReducer = (state=initialState, action) => {
+  console.log("Action:", action.type);
+  console.log("Payload:", action.payload);
+  const stateCopy = {...state};
+
   switch (action.type) {
-    case c.ADD_FEATURE:
-    case c.REMOVE_FEATURE:
+    case ADD_FEATURE: // Payload = item
+      stateCopy.additionalPrice =
+        stateCopy.additionalPrice + action.payload.price;
+      console.log("Feat:", stateCopy.car.features);
+      console.log("Pay:", action.payload);
+      stateCopy.car.features.push(action.payload);
+      return stateCopy;
+    case REMOVE_FEATURE:
+      console.log("Removing a feature");
+      return state;
     default:
-    
-    return state;
+      console.log("No Match");
+      return state;
   }
 }
 

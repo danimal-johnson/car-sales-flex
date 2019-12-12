@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import { createStore,
-         compose, 
-         applyMiddleware } from 'redux';
+        /* compose, applyMiddleware */
+       } from 'redux';
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import allReducers from './reducers';
 
 import 'bulma/css/bulma.css';

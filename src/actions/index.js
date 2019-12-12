@@ -3,14 +3,14 @@ export const REMOVE_FEATURE = 'REMOVE_FEATURE';
 
 
 // -------- ACTION CREATORS ---------- //
-const addFeature = feature => {
+export const addFeature = feature => {
   return {
     type: ADD_FEATURE,
     payload: feature
   }
 }
 
-const removeFeature = feature => {
+export const removeFeature = feature => {
   return {
     type: REMOVE_FEATURE,
     payload: feature
