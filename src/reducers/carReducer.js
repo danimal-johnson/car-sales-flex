@@ -26,15 +26,24 @@ export const carReducer = (state=initialState, action) => {
 
   switch (action.type) {
     case ADD_FEATURE: // Payload = item
-      stateCopy.additionalPrice =
-        stateCopy.additionalPrice + action.payload.price;
+      stateCopy.additionalPrice += action.payload.price;
       console.log("Feat:", stateCopy.car.features);
       console.log("Pay:", action.payload);
       stateCopy.car.features.push(action.payload);
       return stateCopy;
+
     case REMOVE_FEATURE:
       console.log("Removing a feature");
-      return state;
+      console.log(stateCopy.car.features);
+      let index = stateCopy.car.features.find(item => item === action.payload);
+      console.log ("Index:", index);
+      if (index !== -1) {
+        stateCopy.car.features.splice(index,1);
+        stateCopy.additionalPrice -= action.payload.price;
+      }
+
+      return stateCopy;
+
     default:
       console.log("No Match");
       return state;
