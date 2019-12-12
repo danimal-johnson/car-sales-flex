@@ -1,9 +1,9 @@
 // Import all reducers here
 import { combineReducers } from 'redux';
-import appReducer from './appReducer';
+import carReducer from './carReducer';
 
-const allReducers = combineReducers({
-  app: appReducer,
+export const allReducers = combineReducers({
+  car: carReducer,
 });
 
 export default allReducers;
